@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: rgb(141, 255, 217);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+    height: 650px;
+    width:350px;
+    border: 3px solid black;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    overflow: scroll;
+    overflow-x: hidden;
+    /* position: relative; */
+
+}
+
+#container::-webkit-scrollbar{
+    display: none;        /* will remove the scroll bar */
+}
+
+.containing{
+ height: 100%;
+ width:100%;
+ /* border-radius: 5px; */
+ 
+ 
+
+ 
+}
+
+.containing img{
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    /* padding: 5px 0; */
+}
+
+#container i{
+    color: #fff;
+    font-size: 77px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    opacity:0;
+    transition:transform ease 0.3s;
+}
+
+
+/* --------------------------- custom cursor --------------------------- */
+
+.cursor{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    position: absolute;
+    transition: all linear 0.1s;
+    mix-blend-mode:exclusion;
+}
+
+.main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+
+
+/* --------------------------- insta stories---------------------------------------- */
+
+#stories{
+  
+    height:110px;
+    width: 100%;
+    padding:15px;
+    border-bottom: 1px dotted rgb(42, 41, 41);
+    white-space: nowrap;        /* to make every circle in one line*/
+    overflow-x: auto;
+    overflow-y: hidden;
+    
+
+    
+}
+
+#stories::-webkit-scrollbar{
+    display: none;        /* will remove the scroll bar */
+}
+
+
+.story{
+    border: 3px solid rgb(232, 8, 8);
+    height:80px;
+    width: 80px;
+    border-radius: 50%;
+    overflow: hidden ;
+    display: inline-block;
+    margin: 5px;
+    
+
+}
+
+.story img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#fullscreen{
+    height:650px;
+    transform: translate(-50% -50%);
+    
+    width:350px;
+    
+    border-radius: 15px;
+    position: absolute;
+    display:none;
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+
+
+.icons{
+    font-size: 23px;
+    margin: 0 5px;
+    font-weight: 700;
+    display: inline;
+    /* flex: 1 1 3%; Each item takes up 33% of the container width */
+    /* margin: 5px; */
+}
+
+
+.emojies {
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    }
+    
+    .emojies> :first-child,
+    .emojies > :nth-child(2),
+    .emojies > :nth-child(3) {
+    margin-right: 15px;
+    }
+    
+    .emojies > :last-child {
+    margin-left: auto;
+    }
+
+    .ri-bookmark-line{
+        color: rgba(0, 0, 0, 0.873);
+        /* border-bottom: 2px dotted black; */
+    }
+p{
+    margin: 5px 10px;
+}
