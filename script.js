@@ -52,7 +52,7 @@ containers.forEach(function(image, index) {
   handleDoubleClick(image, index); // Call the function for each image
 });
 
-//-----------------change curser-----------------------------
+//-----------------custom curser-----------------------------
 
 
 let main = document.querySelector('.main')
