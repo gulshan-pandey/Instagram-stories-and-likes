@@ -91,7 +91,7 @@ storiyan.addEventListener("click",function(dets){
 
     setTimeout(function(){
         document.querySelector('#fullscreen').style.display="none";
-    },2000)
+    },3000)
 })
 
 
