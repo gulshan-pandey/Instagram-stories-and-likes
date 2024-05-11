@@ -68,8 +68,8 @@ body{
 /* --------------------------- custom cursor --------------------------- */
 
 .cursor{
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
     background-color: rgb(255, 255, 255);
     border-radius: 50%;
     position: absolute;
