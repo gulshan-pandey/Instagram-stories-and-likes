@@ -1,5 +1,5 @@
 
-# Instagram Story and Likes Website
+# A Website feturing Instagram Story and Likes functionality
 
 A web app featuring Instagram-like story and likes functionality, built using HTML, CSS, and JavaScript.
 
