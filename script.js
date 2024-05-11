@@ -3,7 +3,7 @@ let likeIcons = document.querySelectorAll('.ri-heart-line.icons'); 'icons'
 let love = document.querySelector('i')
 let p= document.querySelectorAll('.containing p');
 let storyContainer = document.querySelector("#stories"); 
-let flaglove=0
+// let flaglove=0
 function handleDoubleClick(image, index) {
 
     // console.log(image,index)
@@ -11,7 +11,7 @@ function handleDoubleClick(image, index) {
 
   image.addEventListener('dblclick', function() {
 
-    if(flaglove==0){
+    if(!isLiked){
         likeIcons[index].style.color = 'red';
         love.style.transform = 'translate(-50%,-50%) scale(1)'
         love.style.opacity = '1'
@@ -21,7 +21,9 @@ function handleDoubleClick(image, index) {
         setTimeout(function(){      // setTimeout is used delay the execution of the function for some time
         love.style.transform = 'translate(-50%,-50%) scale(0)'
          },1200)
-        flaglove=1;
+         likeIcons[index].style.color = 'red';
+         p[index].innerText ="101 likes"
+       isLiked=true
         }
         else{
         likeIcons[index].style.color = 'black';
@@ -33,18 +35,12 @@ function handleDoubleClick(image, index) {
         setTimeout(function(){ // setTimeout is used delay the execution of the function for some time
          love.style.transform = 'translate(-50%,-50%) scale(0)'
          },1200)
-         flaglove=0
+         likeIcons[index].style.color = 'black';
+         p[index].innerText ="100 likes"
+         isLiked=false
          }
 
-    if (!isLiked) {
-      likeIcons[index].style.color = 'red';
-      p[index].innerText ="101 likes"
-      isLiked = true;
-    } else {
-      likeIcons[index].style.color = 'black';
-      p[index].innerText ="100 likes"
-      isLiked = false;
-    }
+   
   });
 }
 
@@ -103,52 +99,36 @@ storiyan.addEventListener("click",function(dets){
 
 
 //-------------------------- buttons--------------------------
-let emoticons = document.querySelectorAll(".emojies .ri-heart-line.icons, .emojies .ri-bookmark-line.icons"); 
+let likeEmoticons = document.querySelectorAll(".emojies .ri-heart-line.icons");
+let bookmarkEmoticons = document.querySelectorAll(".emojies .ri-bookmark-line.icons");
 
-emoticons.forEach(function(icon,idx) {
-    // console.log(icon,idx)
+
+function handleLike(icon, idx) {
+  icon.style.color = icon.style.color === 'red' ? 'black' : 'red';
+  p[idx].innerText = icon.style.color === 'red' ? "101 likes" : "100 likes";
+  // ... (love animation logic here)
+  love.style.transform = 'translate(-50%,-50%) scale(1)'
+          love.style.opacity = '1'
+          setTimeout(function(){      // setTimeout is used delay the execution of the function for some time
+          love.style.opacity = 0
+          },1000)
+          setTimeout(function(){      // setTimeout is used delay the execution of the function for some time
+          love.style.transform = 'translate(-50%,-50%) scale(0)'
+          },1200)
+                // flaglove=1;
+               
+          isLiked=true
+}
+
+likeEmoticons.forEach(function(icon, idx) {
   icon.addEventListener("click", function() {
-    let currentClass = icon.className;
-
-    if (currentClass.includes("ri-heart-line")) { 
-
-     
-        
-        
-        
-        icon.style.color = icon.style.color === 'red' ? 'black' : 'red';
-        if(icon.style.color == 'red'){
-            
-            p[idx/2].innerHTML = "101 likes"
-        }else{
-            p[idx/2].innerHTML = "100 likes"}
-            if(flaglove==0){
-            likeIcons[idx/2].style.color = 'red';
-                love.style.transform = 'translate(-50%,-50%) scale(1)'
-                love.style.opacity = '1'
-                setTimeout(function(){      // setTimeout is used delay the execution of the function for some time
-                love.style.opacity = 0
-                 },1000)
-                setTimeout(function(){      // setTimeout is used delay the execution of the function for some time
-                love.style.transform = 'translate(-50%,-50%) scale(0)'
-                 },1200)
-                flaglove=1;
-                }
-                else{
-                likeIcons[idx/2].style.color = 'black';
-                 love.style.transform = 'translate(-50%,-50%) scale(1)'
-                love.style.opacity = '1'
-                setTimeout(function(){      // setTimeout is used delay the execution of the function for some time
-                love.style.opacity = 0
-                },1000)
-                setTimeout(function(){ // setTimeout is used delay the execution of the function for some time
-                 love.style.transform = 'translate(-50%,-50%) scale(0)'
-                 },1200)
-                 flaglove=0
-                }
-            
-        } else if (currentClass.includes("ri-bookmark-line")) { 
-            icon.style.borderBottom = icon.style.borderBottom === '2px solid black' ? 'none' : '2px solid black';
-        }
-    });
+      handleLike(icon, idx);
+  });
 });
+bookmarkEmoticons.forEach(function(icon, idx) {
+  icon.addEventListener("click", function() {
+      icon.style.borderBottom = icon.style.borderBottom === '2px solid black' ? 'none' : '2px solid black';
+  });
+});
+
+
