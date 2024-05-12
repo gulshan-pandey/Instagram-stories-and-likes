@@ -86,11 +86,15 @@ storiyan.innerHTML =temp;
 storiyan.addEventListener("click",function(dets){
     document.querySelector('#fullscreen').style.display='block'
     // array[dets.target.id].story     ---- golden variable
+
+    const clickedStory = dets.target.closest('.story');        // to dessapear the redness of the clicked story
+  
     
     document.querySelector('#fullscreen').style.backgroundImage = `url(${array[dets.target.id].story})`
 
     setTimeout(function(){
         document.querySelector('#fullscreen').style.display="none";
+        clickedStory.style.border = "none";
     },3000)
 })
 
