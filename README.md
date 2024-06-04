@@ -10,4 +10,4 @@ Technologies:
 
   Contributors are welcome!
 
-Visit the site: https://gulshan-pandey.github.io/Instagram-stories-and-likes/
+Visit the site: https://gulshan-pandey.github.io/Instagram-stories-and-likes-featured-webapp/
